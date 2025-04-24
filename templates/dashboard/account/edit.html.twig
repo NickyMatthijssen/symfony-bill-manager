@@ -1,0 +1,17 @@
+{% extends 'dashboard/account/_layout.html.twig' %}
+
+{% block main %}
+    <twig:Card>
+        <twig:CardHeader title="{{ 'account.personal_information.edit.title'|trans }}">
+            {% block action %}
+                <a href="{{ path('dashboard.account') }}" class="button button-danger">
+                    {{ 'account.personal_information.edit.cancel'|trans }}
+                </a>
+            {% endblock %}
+        </twig:CardHeader>
+
+        <twig:CardBody>
+            {{ form(form) }}
+        </twig:CardBody>
+    </twig:Card>
+{% endblock %}

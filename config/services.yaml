@@ -22,3 +22,25 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    mapper.dashboard_statistics.total_yearly_spend:
+        class: App\Mapper\DashboardStatisticMapper\TotalYearlySpendDashboardStatisticMapper
+        tags: ['mapper.dashboard_statistic']
+    mapper.dashboard_statistics.total_monthly_spend:
+        class: App\Mapper\DashboardStatisticMapper\TotalMonthlySpendDashboardStatisticMapper
+        tags: ['mapper.dashboard_statistic']
+    mapper.dashboard_statistics.total_weekly_spend:
+        class: App\Mapper\DashboardStatisticMapper\TotalWeeklySpendDashboardStatisticMapper
+        tags: ['mapper.dashboard_statistic']
+    mapper.personal_information.full_name:
+        class: App\Mapper\PersonalInformationMapper\FullNamePersonalInformationMapper
+        tags: ['mapper.personal_information']
+    mapper.personal_information.email:
+        class: App\Mapper\PersonalInformationMapper\EmailPersonalInformationMapper
+        tags: ['mapper.personal_information']
+
+    mapper.breadcrumb.edit_bill:
+        class: App\Mapper\BreadcrumbMapper\EditBillBreadcrumbMapper
+        tags: ['mapper.breadcrumb']
+    mapper.breadcrumb.dashboard:
+        class: App\Mapper\BreadcrumbMapper\DashboardBreadcrumbMapper
+        tags: ['mapper.breadcrumb']

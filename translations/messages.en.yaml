@@ -1,0 +1,100 @@
+authentication:
+  sign_in:
+    title: Sign in to your account
+    no_account: Don't have an account?
+    sign_up_here: Create one here!
+    email: Email
+    password: Password
+    submit: Sign In
+  sign_up:
+    title: Sign up for an account!
+    account_created: Your account has been created. Sign in below!
+    email: Email
+    password: Password
+    password_confirmation: Confirm password
+    first_name: First name
+    last_name: Last name
+    submit: Create account
+    account_exists: Already have an account?
+    sign_in_here: Sign in here!
+
+dashboard:
+  title: Dashboard
+  my_account: My account
+  my_bills: My Bills
+  add_bill: Add bill
+  copyright: © %year% Build by Nicky Matthijssen.
+  statistic:
+    total_yearly_spend: Total Yearly Spend
+    total_monthly_spend: Total Monthly Spend
+    total_weekly_spend: Total Weekly Spend
+  bill:
+    card:
+      edit: Edit
+      delete: Delete
+    add:
+      title: Add bill
+      cancel: Cancel
+      success: Bill "%name%" has been created
+    edit:
+      title: Edit bill
+      cancel: Cancel
+      success: Bill "%name%" has been updated
+    delete:
+      title: Delete "%name%"
+      confirmation: Do you really want to delete this bill?
+      success: Bill "%name%" has been deleted
+      cancel: Cancel
+      submit: Delete bill
+    form:
+      name: Name
+      interval: Interval
+      amount: Amount
+      url: URL
+      url_placeholder: 'https://example.com'
+      submit: Save
+
+account:
+  title: My account
+  sign_out: Sign out
+  dashboard: Dashboard
+  personal_information:
+    title: Personal information
+    edit_button: Edit
+    full_name: Full name
+    first_name: First name
+    last_name: Last name
+    email: Email
+    edit:
+      title: Updating personal information
+      cancel: Cancel updating
+      update: Update account
+  security_settings:
+    title: Security settings
+    header: Update password
+    description: Click the button below to start updating your password! It is a wise decision to this once in a while... And never reuse your password!
+    update: Update password
+    password:
+      title: Updating password
+      cancel: Cancel
+      success: Password updated
+      update: &update_password Update password
+      form:
+        current_password: Current password
+        new_password: New password
+        confirm_password: Confirm password
+        submit: *update_password
+  delete:
+    title: Delete account
+    header: Thinking about deleting your account?
+    description: This action is permanent and cannot be undone. All of your data will be permanently removed.
+    select: Delete Account
+    confirmation_title: Confirm you want to delete your account
+    confirmation_description: Are you sure you want to delete all your account and data?
+    cancel: Cancel
+    form:
+      agrees_to_be_deleted: >
+        Do you agree to the deletion of you account and all information.
+        After deletion it's not possible to get your data back!
+      submit: Delete account
+    successful: Your account and data has been successfully removed from our system.

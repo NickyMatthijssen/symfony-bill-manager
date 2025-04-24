@@ -1,0 +1,9 @@
+{% set alerts = app.flashes('alerts') %}
+
+{% if alerts is not empty %}
+    <div class="mb-4">
+        {% for alert in alerts %}
+            <twig:Alert :type="alert.type" :title="alert.title" :message="alert.message"/>
+        {% endfor %}
+    </div>
+{% endif %}

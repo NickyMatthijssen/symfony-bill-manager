@@ -1,0 +1,14 @@
+{% extends 'authentication/_authentication.html.twig' %}
+
+{% block title %}{{ 'authentication.sign_in.title'|trans }}{% endblock %}
+
+{% block main %}
+    {{ form(form) }}
+
+    <p class="mt-10 text-center text-sm/6 text-gray-500">
+        {{ 'authentication.sign_in.no_account'|trans }}
+        <a href="{{ path('authentication.sign-up') }}" class="font-semibold text-indigo-400 hover:text-indigo-300">
+            {{ 'authentication.sign_in.sign_up_here'|trans }}
+        </a>
+    </p>
+{% endblock %}

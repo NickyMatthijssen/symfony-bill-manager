@@ -1,0 +1,63 @@
+{% extends 'dashboard/account/_layout.html.twig' %}
+
+{% block title %}{{ 'account.title'|trans }}{% endblock %}
+
+{% block main %}
+    <twig:Card>
+        <twig:CardHeader title="{{ 'account.personal_information.title'|trans }}">
+            {% block action %}
+                <a href="{{ path('dashboard.account.edit') }}" class="button button-success">
+                    {{ 'account.personal_information.edit_button'|trans }}
+                </a>
+            {% endblock %}
+        </twig:CardHeader>
+        <twig:CardBody>
+            <table class="min-w-full">
+                <tbody>
+                {% for row in information %}
+                    <tr>
+                        <th class="text-left pl-4 sm:pl-0 text-white whitespace-nowrap font-medium text-sm pr-3 py-4 w-36">{{ row.label }}</th>
+                        <td class="text-gray-300 whitespace-nowrap text-sm py-4 px-3">{{ row.value }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </twig:CardBody>
+    </twig:Card>
+
+    <twig:Card>
+        <twig:CardHeader title="{{ 'account.security_settings.title'|trans }}"/>
+        <twig:CardBody>
+            <p class="text-white">
+                <strong>{{ 'account.security_settings.header'|trans }}</strong>
+                <br/>
+                {{ 'account.security_settings.description'|trans }}
+            </p>
+            <br/>
+            <a href="{{ path('dashboard.account.password') }}" class="button button-success">
+                {{ 'account.security_settings.update'|trans }}
+            </a>
+        </twig:CardBody>
+    </twig:Card>
+
+    <twig:Card>
+        <twig:CardHeader title="{{ 'account.delete.title'|trans }}"/>
+        <twig:CardBody>
+            <p class="text-white">
+                <strong>{{ 'account.delete.header'|trans }}</strong>
+                <br/>
+                {{ 'account.delete.description'|trans }}
+            </p>
+            <br/>
+            <a href="{{ path('dashboard.account.delete') }}" class="button button-danger">
+                {{ 'account.delete.select'|trans }}
+            </a>
+        </twig:CardBody>
+    </twig:Card>
+
+    <div class="flex flex-row-reverse">
+        <a href="{{ path('_logout_main') }}" class="button button-danger">
+            {{ 'account.sign_out'|trans }}
+        </a>
+    </div>
+{% endblock %}

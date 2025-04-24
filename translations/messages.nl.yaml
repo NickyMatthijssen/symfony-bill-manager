@@ -1,0 +1,98 @@
+authentication:
+  sign_in:
+    title: Log in op je account
+    no_account: Nog geen account?
+    sign_up_here: Maak er hier een aan!
+    email: &email E-mailadres
+    password: &password Wachtwoord
+    submit: Inloggen
+  sign_up:
+    title: Maar een account aan
+    account_created: Jouw account is aangemaakt. Je kunt nu inloggen!
+    email: *email
+    password: *password
+    password_confirmation: Wachtwoord bevestigen
+    first_name: Voornaam
+    last_name: Achternaam
+    submit: Account aanmaken
+    account_exists: Heb je al een account?
+    sign_in_here: Klik hier om in te loggen!
+
+dashboard:
+  title: Dashboard
+  my_account: Mijn account
+  my_bills: Mijn rekeningen
+  add_bill: Rekening toevoegen
+  copyright: © %year% Gemaakt door Nicky Matthijssen.
+  statistic:
+    total_yearly_spend: Totaal jaarlijks
+    total_monthly_spend: Totaal maandelijks
+    total_weekly_spend: Totaal wekelijks
+  bill:
+    card:
+      edit: Bewerken
+      delete: Verwijderen
+    add:
+      title: Rekening toevoegen
+      cancel: Annuleren
+      success: Rekening "%name%" is toegevoegd
+    edit:
+      title: Rekening bijwerken
+      cancel: Annuleren
+      success: Rekening "%name%" is bijgewerkt
+    delete:
+      title: '"%name%" Verwijderen'
+      confirmation: 'Weet je zeker dat je deze rekening wilt verwijderen?'
+      success: 'Rekening "%name%" is verwijderd'
+      cancel: 'Annuleren'
+      submit: 'Rekening verwijderen'
+    form:
+      name: 'Naam'
+      interval: 'Periode'
+      amount: 'Bedrag'
+      url: 'Website'
+      url_placeholder: 'https://voorbeeld.nl'
+      submit: 'Opslaan'
+
+account:
+  title: 'Mijn account'
+  sign_out: 'Uitloggen'
+  dashboard: Dashboard
+  personal_information:
+    title: 'Persoonlijke informatie'
+    edit_button: 'Bewerken'
+    full_name: 'Naam'
+    first_name: 'Voornaam'
+    last_name: 'Achternaam'
+    email: *email
+    edit:
+      title: 'Persoonlijke informatie bijwerken'
+      cancel: 'Annuleren'
+      update: 'Bijwerken'
+  security_settings:
+    title: 'Beveiligingsinstellingen'
+    header: 'Wachtwoord wijzigen'
+    description: 'Klik op onderstaande knop om je wachtwoord te wijzigen! Het is slim om dit om de paar maanden te doen... en hergebruik nooit een oud wachtwoord!'
+    update: 'Wijzigen'
+    password:
+      title: 'Wachtwoord wijzigen'
+      cancel: 'Annuleren'
+      success: 'Wachtwoord gewijzigd'
+      update: &update_password 'Wachtwoord wijzigen'
+      form:
+        current_password: 'Huidig wachtwoord'
+        new_password: 'Nieuw wachtwoord'
+        confirm_password: 'Bevestig wachtwoord'
+        submit: *update_password
+  delete:
+    title: 'Verwijder account'
+    header: 'Wil je jouw account verwijderen?'
+    description: &delete.description 'Het verwijderen van jouw account is permanent. All jouw gegevens worden permanent verwijderd.'
+    select: 'Account verwijderen'
+    confirmation_title: 'Bevestig het verwijderen van jouw account'
+    confirmation_description: *delete.description
+    cancel: 'Annuleren'
+    form:
+      agrees_to_be_deleted: 'Ga je akkoord met het permanent verwijderen van jouw account?'
+      submit: 'Account verwijderen'
+    successful: 'Jouw account en gegevens zijn succesvol verwijderd uit ons systeem!'
