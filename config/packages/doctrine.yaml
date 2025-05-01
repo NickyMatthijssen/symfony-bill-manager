@@ -9,9 +9,9 @@ doctrine:
         profiling_collect_backtrace: '%kernel.debug%'
         use_savepoints: true
         types:
-            base64: App\Doctrine\Types\Base64Type
-            money: App\Doctrine\Types\MoneyType
-            url: App\Doctrine\Types\UrlType
+            base64: App\Infrastructure\Doctrine\Type\Base64Type
+            money: App\Infrastructure\Doctrine\Type\MoneyType
+            url: App\Infrastructure\Doctrine\Type\UrlType
     orm:
         auto_generate_proxy_classes: true
         enable_lazy_ghost_objects: true
@@ -25,14 +25,14 @@ doctrine:
             App:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
+                dir: '%kernel.project_dir%/src/Domain/Entity'
+                prefix: 'App\Domain\Entity'
                 alias: App
             ValueObjects:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/ValueObjects'
-                prefix: 'App\ValueObjects'
+                dir: '%kernel.project_dir%/src/Domain/ValueObject'
+                prefix: 'App\Domain\ValueObject'
         controller_resolver:
             auto_mapping: false
 

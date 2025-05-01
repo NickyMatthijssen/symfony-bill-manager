@@ -23,24 +23,32 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     mapper.dashboard_statistics.total_yearly_spend:
-        class: App\Mapper\DashboardStatisticMapper\TotalYearlySpendDashboardStatisticMapper
+        class: App\Presentation\Mapper\DashboardStatisticMapper\TotalYearlySpendDashboardStatisticMapper
         tags: ['mapper.dashboard_statistic']
     mapper.dashboard_statistics.total_monthly_spend:
-        class: App\Mapper\DashboardStatisticMapper\TotalMonthlySpendDashboardStatisticMapper
+        class: App\Presentation\Mapper\DashboardStatisticMapper\TotalMonthlySpendDashboardStatisticMapper
         tags: ['mapper.dashboard_statistic']
     mapper.dashboard_statistics.total_weekly_spend:
-        class: App\Mapper\DashboardStatisticMapper\TotalWeeklySpendDashboardStatisticMapper
+        class: App\Presentation\Mapper\DashboardStatisticMapper\TotalWeeklySpendDashboardStatisticMapper
         tags: ['mapper.dashboard_statistic']
     mapper.personal_information.full_name:
-        class: App\Mapper\PersonalInformationMapper\FullNamePersonalInformationMapper
+        class: App\Presentation\Mapper\PersonalInformationMapper\FullNamePersonalInformationMapper
         tags: ['mapper.personal_information']
     mapper.personal_information.email:
-        class: App\Mapper\PersonalInformationMapper\EmailPersonalInformationMapper
+        class: App\Presentation\Mapper\PersonalInformationMapper\EmailPersonalInformationMapper
         tags: ['mapper.personal_information']
 
+    mapper.breadcrumb.add_bill:
+        class: App\Presentation\Mapper\BreadcrumbMapper\AddBillBreadcrumbMapper
+        tags: ['mapper.breadcrumb']
     mapper.breadcrumb.edit_bill:
-        class: App\Mapper\BreadcrumbMapper\EditBillBreadcrumbMapper
+        class: App\Presentation\Mapper\BreadcrumbMapper\EditBillBreadcrumbMapper
         tags: ['mapper.breadcrumb']
     mapper.breadcrumb.dashboard:
-        class: App\Mapper\BreadcrumbMapper\DashboardBreadcrumbMapper
+        class: App\Presentation\Mapper\BreadcrumbMapper\DashboardBreadcrumbMapper
         tags: ['mapper.breadcrumb']
+
+    App\Domain\Repository\UserRepositoryInterface:
+        class: App\Infrastructure\Doctrine\Repository\UserRepository
+    App\Domain\Repository\BillRepositoryInterface:
+        class: App\Infrastructure\Doctrine\Repository\BillRepository

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 arch()
     ->expect('App')
     ->toUseStrictEquality()
@@ -8,7 +10,21 @@ arch()
 
 arch()
     ->expect('App\Application')
-    ->toOnlyBeUsedIn(['App\Presentation', 'App\Infrastructure']);
+    ->not
+    ->toBeUsedIn(['App\Domain']);
+
+arch()
+    ->expect(['App\Infrastructure', 'App\Presentation'])
+    ->not
+    ->toBeUsedIn(['App\Domain', 'App\Application']);
+
+arch()
+    ->expect('App\Infrastructure')
+    ->toOnlyBeUsedIn(['App\Infrastructure']);
+
+arch()
+    ->expect('App\Presentation')
+    ->toOnlyBeUsedIn(['App\Presentation']);
 
 arch()
     ->expect('App\controller')

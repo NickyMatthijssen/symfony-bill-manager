@@ -1,8 +1,8 @@
 controllers:
     prefix: /{_locale}
     resource:
-        path: ../src/Controller/
-        namespace: App\Controller
+        path: ../src/Presentation/Controller/
+        namespace: App\Presentation\Controller
     type: attribute
 
 index_redirect:
