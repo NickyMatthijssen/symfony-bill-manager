@@ -68,7 +68,7 @@ account:
   dashboard: Dashboard
   personal_information:
     title: Personal information
-    edit_button: Edit
+    update_button: Edit
     full_name: Full name
     first_name: First name
     last_name: Last name

@@ -7,11 +7,12 @@ use App\Application\Security\SignUp\SignUpCommand;
 use App\Application\Security\SignUp\SignUpCommandHandler;
 use App\Domain\Entity\User;
 use App\Domain\ValueObject\Base64;
+use App\Tests\Mock\Domain\Entity\UserMock;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 it('can update password', function () {
-    $user = createUser();
+    $user = UserMock::create();
     $user->setPassword('hashedPassword');
 
     $entityManager = $this->createMock(EntityManagerInterface::class);
@@ -19,7 +20,7 @@ it('can update password', function () {
     $entityManager->expects($this->once())->method('flush');
 
     $userPasswordHasher = $this->createMock(UserPasswordHasherInterface::class);
-    $userPasswordHasher->expects($this->once())->method('hashPassword')->with(createUser(), 'password')->willReturn('hashedPassword');
+    $userPasswordHasher->expects($this->once())->method('hashPassword')->with(UserMock::create(), 'password')->willReturn('hashedPassword');
 
     $avatarGenerator = $this->createStub(AvatarGeneratorInterface::class);
     $avatarGenerator->method('generate')->willReturn(new Base64('type', 'value'));
@@ -37,8 +38,3 @@ it('can update password', function () {
         'password',
     ));
 });
-
-function createUser(): User
-{
-    return new User('user@example.com', 'first', 'last', new Base64('type', 'value'));
-}

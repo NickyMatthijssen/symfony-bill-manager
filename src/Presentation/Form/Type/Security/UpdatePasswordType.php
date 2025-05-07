@@ -36,7 +36,7 @@ final class UpdatePasswordType extends AbstractType
         $builder
             ->add('currentPassword', PasswordType::class, [
                 'label' => 'account.security_settings.password.form.current_password',
-                'constraints' => [new Assert\NotBlank()]
+                'constraints' => [new Assert\NotBlank()],
             ])
             ->add('newPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -50,7 +50,7 @@ final class UpdatePasswordType extends AbstractType
                     new Assert\NotBlank(),
                     new Assert\Length(min: 8, max: 32),
                     new Assert\NotCompromisedPassword(),
-                ]
+                ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'account.security_settings.password.form.submit',
