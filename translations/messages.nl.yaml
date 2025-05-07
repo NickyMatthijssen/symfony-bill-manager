@@ -21,78 +21,89 @@ authentication:
 dashboard:
   title: Dashboard
   my_account: Mijn account
-  my_bills: Mijn rekeningen
-  add_bill: Rekening toevoegen
+  my_transactions: Mijn transacties
+  my_income: Mijn inkomen
+  my_expenses: Mijn uitgaven
+  add_transaction: Transactie toevoegen
   copyright: © %year% Gemaakt door Nicky Matthijssen.
   statistic:
-    total_yearly_spend: Totaal jaarlijks
-    total_monthly_spend: Totaal maandelijks
-    total_weekly_spend: Totaal wekelijks
-  bill:
+    total_yearly_earned: Totaal verdiend (jaarlijks)
+    total_yearly_spend: Totaal uitgegeven (jaarlijks)
+    savings_rate: Spaarpercentage (%)
+    income_expense_ratio: Inkomen-uitgavenverhouding
+  transaction:
     card:
       edit: Bewerken
       delete: Verwijderen
     add:
-      title: Rekening toevoegen
+      title: Transactie toevoegen
       cancel: Annuleren
-      success: Rekening "%name%" is toegevoegd
-    edit:
-      title: Rekening bijwerken
+      success: Transactie "%name%" is toegevoegd
+    update:
+      breadcrumb: Transactie bijwerken
+      title: Transactie bijwerken
       cancel: Annuleren
-      success: Rekening "%name%" is bijgewerkt
+      success: Transactie "%name%" is bijgewerkt
     delete:
-      title: '"%name%" Verwijderen'
-      confirmation: 'Weet je zeker dat je deze rekening wilt verwijderen?'
-      success: 'Rekening "%name%" is verwijderd'
-      cancel: 'Annuleren'
-      submit: 'Rekening verwijderen'
+      breadcrumb: Transactie verwijderen
+      title: > 
+        "%name%" Verwijderen
+      confirmation: Weet je zeker dat je deze transactie wilt verwijderen?
+      success: Transactie "%name%" is verwijderd
+      cancel: Annuleren
+      submit: Transactie verwijderen
     form:
-      name: 'Naam'
-      interval: 'Periode'
-      amount: 'Bedrag'
-      url: 'Website'
-      url_placeholder: 'https://voorbeeld.nl'
-      submit: 'Opslaan'
+      name: Naam
+      type: Soort
+      interval: Periode
+      amount: Bedrag
+      url: Website
+      url_placeholder: https://voorbeeld.nl
+      submit: Opslaan
 
 account:
-  title: 'Mijn account'
-  sign_out: 'Uitloggen'
+  breadcrumb: Mijn account
+  title: Mijn account
+  sign_out: Uitloggen
   dashboard: Dashboard
   personal_information:
-    title: 'Persoonlijke informatie'
-    edit_button: 'Bewerken'
-    full_name: 'Naam'
-    first_name: 'Voornaam'
-    last_name: 'Achternaam'
+    title: Persoonlijke informatie
+    update_button: Bewerken
+    full_name: Naam
+    first_name: Voornaam
+    last_name: Achternaam
     email: *email
-    edit:
-      title: 'Persoonlijke informatie bijwerken'
-      cancel: 'Annuleren'
-      update: 'Bijwerken'
+    update:
+      breadcrumb: Persoonlijke informatie bijwerken
+      title: Persoonlijke informatie bijwerken
+      cancel: Annuleren
+      update: Bijwerken
   security_settings:
-    title: 'Beveiligingsinstellingen'
-    header: 'Wachtwoord wijzigen'
-    description: 'Klik op onderstaande knop om je wachtwoord te wijzigen! Het is slim om dit om de paar maanden te doen... en hergebruik nooit een oud wachtwoord!'
-    update: 'Wijzigen'
+    title: Beveiligingsinstellingen
+    header: Wachtwoord wijzigen
+    description: Klik op onderstaande knop om je wachtwoord te wijzigen! Het is slim om dit om de paar maanden te doen... en hergebruik nooit een oud wachtwoord!
+    update: Wijzigen
     password:
-      title: 'Wachtwoord wijzigen'
-      cancel: 'Annuleren'
-      success: 'Wachtwoord gewijzigd'
-      update: &update_password 'Wachtwoord wijzigen'
+      breadcrumb: Wachtwoord wijzigen
+      title: Wachtwoord wijzigen
+      cancel: Annuleren
+      success: Wachtwoord gewijzigd
+      update: &update_password Wachtwoord wijzigen
       form:
-        current_password: 'Huidig wachtwoord'
-        new_password: 'Nieuw wachtwoord'
-        confirm_password: 'Bevestig wachtwoord'
+        current_password: Huidig wachtwoord
+        new_password: Nieuw wachtwoord
+        confirm_password: Bevestig wachtwoord
         submit: *update_password
   delete:
-    title: 'Verwijder account'
-    header: 'Wil je jouw account verwijderen?'
-    description: &delete.description 'Het verwijderen van jouw account is permanent. All jouw gegevens worden permanent verwijderd.'
-    select: 'Account verwijderen'
-    confirmation_title: 'Bevestig het verwijderen van jouw account'
+    breadcrumb: Verwijder account
+    title: Verwijder account
+    header: Wil je jouw account verwijderen?
+    description: &delete.description Het verwijderen van jouw account is permanent. All jouw gegevens worden permanent verwijderd.
+    select: Account verwijderen
+    confirmation_title: Bevestig het verwijderen van jouw account
     confirmation_description: *delete.description
-    cancel: 'Annuleren'
+    cancel: Annuleren
     form:
-      agrees_to_be_deleted: 'Ga je akkoord met het permanent verwijderen van jouw account?'
-      submit: 'Account verwijderen'
-    successful: 'Jouw account en gegevens zijn succesvol verwijderd uit ons systeem!'
+      agrees_to_be_deleted: Ga je akkoord met het permanent verwijderen van jouw account?
+      submit: Account verwijderen
+    successful: Jouw account en gegevens zijn succesvol verwijderd uit ons systeem!

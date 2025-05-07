@@ -16,7 +16,7 @@ use Symfony\Component\Messenger\Attribute\AsMessage;
 final readonly class UpdatePasswordCommand implements CommandInterface
 {
     public function __construct(
-        public User $user,
+        public string $userIdentifier,
         #[SensitiveParameter]
         public string $password,
     ) {

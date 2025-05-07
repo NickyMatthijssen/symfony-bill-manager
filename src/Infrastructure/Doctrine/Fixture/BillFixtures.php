@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Doctrine\Fixture;
 
-use App\Domain\Entity\Bill;
+use App\Domain\Entity\Transaction;
 use App\Domain\Entity\User;
 use App\Domain\Enum\Interval;
+use App\Domain\Enum\TransactionType;
 use App\Domain\ValueObject\Money;
 use App\Domain\ValueObject\Url;
 use App\Infrastructure\Doctrine\Repository\UserRepository;
@@ -27,7 +28,7 @@ final class BillFixtures extends Fixture implements DependentFixtureInterface
         ]);
         assert($user instanceof User);
 
-        $bill = new Bill($user, 'Car Insurance', Money::createFromCents(22000), Interval::Monthly);
+        $bill = new Transaction($user, 'Car Insurance', Money::createFromCents(22000), Interval::Monthly, TransactionType::Expense);
         $bill->setUrl(Url::createFromString('http://example.com/'));
         $manager->persist($bill);
         $manager->flush();

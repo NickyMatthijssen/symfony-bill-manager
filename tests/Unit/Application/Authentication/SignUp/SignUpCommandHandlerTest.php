@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use App\Application\Authentication\SignUp\SignUpCommand;
-use App\Application\Authentication\SignUp\SignUpCommandHandler;
 use App\Application\Common\AvatarGeneratorInterface;
+use App\Application\Security\SignUp\SignUpCommand;
+use App\Application\Security\SignUp\SignUpCommandHandler;
 use App\Domain\Entity\User;
 use App\Domain\ValueObject\Base64;
 use Doctrine\ORM\EntityManagerInterface;

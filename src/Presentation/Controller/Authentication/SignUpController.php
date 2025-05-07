@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Presentation\Controller\Authentication;
 
 use App\Presentation\Controller\AbstractController;
-use App\Presentation\Form\Handler\Authentication\SignUpFormHandler;
 use App\Presentation\Form\Model\Authentication\SignUp;
+use App\Presentation\Form\Model\Security\SignUpFormHandler;
 use App\Presentation\Form\Type\Authentication\SignUpType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;

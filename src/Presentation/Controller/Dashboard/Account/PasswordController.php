@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Presentation\Controller\Dashboard\Account;
 
 use App\Presentation\Controller\AbstractController;
-use App\Presentation\Form\Handler\Account\UpdatePasswordHandler;
+use App\Presentation\Form\Handler\Security\UpdatePasswordHandler;
 use App\Presentation\Form\Model\Account\UpdatePassword;
-use App\Presentation\Form\Type\Account\UpdatePasswordType;
+use App\Presentation\Form\Type\Security\UpdatePasswordType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;

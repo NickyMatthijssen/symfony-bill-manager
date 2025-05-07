@@ -30,7 +30,7 @@ final class UpdateAccountType extends AbstractType
                 'label' => 'account.personal_information.last_name',
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'account.personal_information.edit.update',
+                'label' => 'account.personal_information.update.update',
             ]);
     }
 

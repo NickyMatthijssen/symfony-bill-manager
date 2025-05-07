@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Entity;
 
-use App\Domain\Repository\UserRepositoryInterface;
+use App\Domain\Collections\TransactionCollection;
 use App\Domain\ValueObject\Base64;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -39,16 +39,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private Base64 $avatar;
 
     /**
-     * @var Collection<array-key, Bill>
+     * @var Collection<array-key, Transaction>
      */
-    #[ORM\OneToMany(targetEntity: Bill::class, mappedBy: 'user', cascade: ['persist', 'remove'], orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: Transaction::class, mappedBy: 'user', cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $bills;
-
-    /**
-     * @var Collection<array-key, Income>
-     */
-    #[ORM\OneToMany(targetEntity: Income::class, mappedBy: 'user', cascade: ['persist', 'remove'], orphanRemoval: true)]
-    private Collection $incomes;
 
     public function __construct(
         string $email,
@@ -61,7 +55,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->lastName = $lastName;
         $this->avatar = $avatar;
         $this->bills = new ArrayCollection();
-        $this->incomes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -154,19 +147,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // noop
     }
 
-    /**
-     * @return Collection<array-key, Bill>
-     */
-    public function getBills(): Collection
+    public function getBills(): TransactionCollection
     {
-        return $this->bills;
+        return new TransactionCollection($this->bills->toArray());
     }
 
-    /**
-     * @return Collection<array-key, Income>
-     */
-    public function getIncomes(): Collection
+    public function addTransaction(Transaction $transaction): void
     {
-        return $this->incomes;
+        if (!$this->bills->contains($transaction)) {
+            $this->bills->add($transaction);
+        }
     }
 }

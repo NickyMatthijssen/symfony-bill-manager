@@ -1,14 +1,13 @@
 {% extends 'dashboard/account/_layout.html.twig' %}
 
 {% block main %}
+    <twig:Header title="{{ 'account.delete.confirmation_title'|trans }}">
+        <a href="{{ path('dashboard.account') }}" class="button button-danger">
+            {{ 'account.delete.cancel'|trans }}
+        </a>
+    </twig:Header>
+
     <twig:Card>
-        <twig:CardHeader title="{{ 'account.delete.confirmation_title'|trans }}">
-            {% block action %}
-                <a href="{{ path('dashboard.account') }}" class="button button-danger">
-                    {{ 'account.delete.cancel'|trans }}
-                </a>
-            {% endblock %}
-        </twig:CardHeader>
         <twig:CardBody>
             <p class="text-white">{{ 'account.delete.confirmation_description'|trans }}</p>
             <br/>

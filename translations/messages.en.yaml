@@ -21,40 +21,48 @@ authentication:
 dashboard:
   title: Dashboard
   my_account: My account
-  my_bills: My Bills
-  add_bill: Add bill
+  my_transactions: My Transactions
+  my_income: My Income
+  my_expenses: My Expenses
+  add_transaction: Add transaction
   copyright: © %year% Build by Nicky Matthijssen.
   statistic:
+    total_yearly_earned: Total Yearly Earned
     total_yearly_spend: Total Yearly Spend
-    total_monthly_spend: Total Monthly Spend
-    total_weekly_spend: Total Weekly Spend
-  bill:
+    savings_rate: Savings Rate (%)
+    income_expense_ratio: Income vs Expense Ratio
+  transaction:
     card:
       edit: Edit
       delete: Delete
     add:
-      title: Add bill
+      title: Add transaction
       cancel: Cancel
-      success: Bill "%name%" has been created
-    edit:
-      title: Edit bill
+      success: Transaction "%name%" has been created
+    update:
+      breadcrumb: Edit transaction
+      title: Edit transaction
       cancel: Cancel
-      success: Bill "%name%" has been updated
+      success: Transaction "%name%" has been updated
     delete:
-      title: Delete "%name%"
-      confirmation: Do you really want to delete this bill?
-      success: Bill "%name%" has been deleted
+      breadcrumb: Transactie verwijderen
+      title: >
+        Delete "%name%"
+      confirmation: Do you really want to delete this transaction?
+      success: Transaction "%name%" has been deleted
       cancel: Cancel
-      submit: Delete bill
+      submit: Delete transaction
     form:
       name: Name
+      type: Type
       interval: Interval
       amount: Amount
       url: URL
-      url_placeholder: 'https://example.com'
+      url_placeholder: https://example.com
       submit: Save
 
 account:
+  breadcrumb: My account
   title: My account
   sign_out: Sign out
   dashboard: Dashboard
@@ -65,7 +73,8 @@ account:
     first_name: First name
     last_name: Last name
     email: Email
-    edit:
+    update:
+      breadcrumb: Updating personal information
       title: Updating personal information
       cancel: Cancel updating
       update: Update account
@@ -75,6 +84,7 @@ account:
     description: Click the button below to start updating your password! It is a wise decision to this once in a while... And never reuse your password!
     update: Update password
     password:
+      breadcrumb: Updating password
       title: Updating password
       cancel: Cancel
       success: Password updated
@@ -85,6 +95,7 @@ account:
         confirm_password: Confirm password
         submit: *update_password
   delete:
+    breadcrumb: Delete account
     title: Delete account
     header: Thinking about deleting your account?
     description: This action is permanent and cannot be undone. All of your data will be permanently removed.
@@ -93,8 +104,6 @@ account:
     confirmation_description: Are you sure you want to delete all your account and data?
     cancel: Cancel
     form:
-      agrees_to_be_deleted: >
-        Do you agree to the deletion of you account and all information.
-        After deletion it's not possible to get your data back!
+      agrees_to_be_deleted: Do you agree to the deletion of you account and all information. After deletion it's not possible to get your data back!
       submit: Delete account
     successful: Your account and data has been successfully removed from our system.

@@ -21,8 +21,12 @@ final class Base64Type extends Type
         return 'base64';
     }
 
-    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): Base64
+    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): ?Base64
     {
+        if (null === $value) {
+            return null;
+        }
+
         if (!is_string($value)) {
             throw new InvalidArgumentException('value must be a string.');
         }
@@ -31,8 +35,12 @@ final class Base64Type extends Type
         return Base64::createFromBase64($type, $base64);
     }
 
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
+        if (null === $value) {
+            return null;
+        }
+
         if (!($value instanceof Base64)) {
             throw new InvalidArgumentException('value should be an instance of Base64');
         }

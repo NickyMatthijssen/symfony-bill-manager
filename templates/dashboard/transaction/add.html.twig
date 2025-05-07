@@ -1,0 +1,17 @@
+{% form_theme form 'form/_theme.html.twig' %}
+
+{% extends 'dashboard/_layout.html.twig' %}
+
+{% block main %}
+    <twig:Header title="{{ 'dashboard.transaction.add.title'|trans }}">
+        <a href="{{ path('dashboard') }}" class="button button-danger">
+            {{ 'dashboard.transaction.add.cancel'|trans }}
+        </a>
+    </twig:Header>
+
+    <twig:Card>
+        <twig:CardBody>
+            {{ form(form) }}
+        </twig:CardBody>
+    </twig:Card>
+{% endblock %}

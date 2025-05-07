@@ -6,7 +6,7 @@ namespace App\Domain\ValueObject;
 
 use NumberFormatter;
 
-final class Money
+final class Money implements StatisticInterface
 {
     public function __construct(
         public int $amount {
@@ -23,6 +23,11 @@ final class Money
     public static function createFromCents(int|float $amount): self
     {
         return new self((int) $amount);
+    }
+
+    public function inCents(): float
+    {
+        return $this->amount;
     }
 
     public function inEuros(): float

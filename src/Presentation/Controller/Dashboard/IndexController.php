@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Presentation\Controller\Dashboard;
 
 use App\Domain\Entity\User;
+use App\Domain\Enum\TransactionType;
 use App\Presentation\Controller\AbstractController;
 use App\Presentation\Provider\DashboardStatisticProviderInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +26,8 @@ final class IndexController extends AbstractController
 
         return $this->render('dashboard/index.html.twig', [
             'statistics' => $this->dashboardStatisticProvider->getDashboardStatistic($user),
-            'bills' => $user->getBills(),
+            'incomes' => $user->getBills()->byType(TransactionType::Income),
+            'expenses' => $user->getBills()->byType(TransactionType::Expense),
         ]);
     }
 }

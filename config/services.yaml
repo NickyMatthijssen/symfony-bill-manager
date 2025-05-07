@@ -22,33 +22,42 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    mapper.dashboard_statistics.total_yearly_earned:
+        class: App\Presentation\Mapper\DashboardStatisticMapper\TotalYearlyEarnedDashboardStatisticMapper
+        tags: [ 'mapper.dashboard_statistic' ]
     mapper.dashboard_statistics.total_yearly_spend:
         class: App\Presentation\Mapper\DashboardStatisticMapper\TotalYearlySpendDashboardStatisticMapper
-        tags: ['mapper.dashboard_statistic']
-    mapper.dashboard_statistics.total_monthly_spend:
-        class: App\Presentation\Mapper\DashboardStatisticMapper\TotalMonthlySpendDashboardStatisticMapper
-        tags: ['mapper.dashboard_statistic']
-    mapper.dashboard_statistics.total_weekly_spend:
-        class: App\Presentation\Mapper\DashboardStatisticMapper\TotalWeeklySpendDashboardStatisticMapper
-        tags: ['mapper.dashboard_statistic']
-    mapper.personal_information.full_name:
-        class: App\Presentation\Mapper\PersonalInformationMapper\FullNamePersonalInformationMapper
-        tags: ['mapper.personal_information']
-    mapper.personal_information.email:
-        class: App\Presentation\Mapper\PersonalInformationMapper\EmailPersonalInformationMapper
-        tags: ['mapper.personal_information']
+        tags: [ 'mapper.dashboard_statistic' ]
+    mapper.dashboard_statistics.savings_rate:
+        class: App\Presentation\Mapper\DashboardStatisticMapper\SavingsRateDashboardStatisticMapper
+        tags: [ 'mapper.dashboard_statistic' ]
+    mapper.dashboard_statistics.income_expense_ratio:
+        class: App\Presentation\Mapper\DashboardStatisticMapper\IncomeExpenseRatioDashboardStatisticMapper
+        tags: [ 'mapper.dashboard_statistic' ]
 
-    mapper.breadcrumb.add_bill:
-        class: App\Presentation\Mapper\BreadcrumbMapper\AddBillBreadcrumbMapper
-        tags: ['mapper.breadcrumb']
-    mapper.breadcrumb.edit_bill:
-        class: App\Presentation\Mapper\BreadcrumbMapper\EditBillBreadcrumbMapper
-        tags: ['mapper.breadcrumb']
-    mapper.breadcrumb.dashboard:
-        class: App\Presentation\Mapper\BreadcrumbMapper\DashboardBreadcrumbMapper
-        tags: ['mapper.breadcrumb']
+    mapper.breadcrumb.dashboard.transaction.add:
+        class: App\Presentation\Mapper\BreadcrumbMapper\Dashboard\Transaction\AddBreadcrumbMapper
+        tags: [ 'mapper.breadcrumb' ]
+    mapper.breadcrumb.dashboard.transaction.update:
+        class: App\Presentation\Mapper\BreadcrumbMapper\Dashboard\Transaction\UpdateBreadcrumbMapper
+        tags: [ 'mapper.breadcrumb' ]
+    mapper.breadcrumb.dashboard.transaction.delete:
+        class: App\Presentation\Mapper\BreadcrumbMapper\Dashboard\Transaction\DeleteBreadcrumbMapper
+        tags: [ 'mapper.breadcrumb' ]
+    mapper.breadcrumb.dashboard.account:
+        class: App\Presentation\Mapper\BreadcrumbMapper\Dashboard\AccountBreadcrumbMapper
+        tags: [ 'mapper.breadcrumb' ]
+    mapper.breadcrumb.dashboard.account.update:
+        class: App\Presentation\Mapper\BreadcrumbMapper\Dashboard\Account\UpdateBreadcrumbMapper
+        tags: [ 'mapper.breadcrumb' ]
+    mapper.breadcrumb.dashboard.account.password:
+        class: App\Presentation\Mapper\BreadcrumbMapper\Dashboard\Account\PasswordBreadcrumbMapper
+        tags: [ 'mapper.breadcrumb' ]
+    mapper.breadcrumb.dashboard.account.delete:
+        class: App\Presentation\Mapper\BreadcrumbMapper\Dashboard\Account\DeleteBreadcrumbMapper
+        tags: [ 'mapper.breadcrumb' ]
 
     App\Domain\Repository\UserRepositoryInterface:
         class: App\Infrastructure\Doctrine\Repository\UserRepository
-    App\Domain\Repository\BillRepositoryInterface:
-        class: App\Infrastructure\Doctrine\Repository\BillRepository
+    App\Domain\Repository\TransactionRepositoryInterface:
+        class: App\Infrastructure\Doctrine\Repository\TransactionRepository

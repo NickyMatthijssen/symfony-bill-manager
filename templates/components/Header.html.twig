@@ -1,0 +1,15 @@
+{% props title %}
+
+<div {{ attributes }} class="py-8 text-gray-800">
+    {% include 'partials/_breadcrumbs.html.twig' %}
+    <div class="md:justify-between md:items-center md:flex mt-2">
+        <div class="flex-1 min-w-0">
+            <h2 class="tracking-tight text-2xl sm:text-3xl sm:overflow-ellipsis text-white font-bold">
+                {{ title }}
+            </h2>
+        </div>
+        <div class="md:ml-4 mt-4 md:mt-0 shrink-0 flex">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</div>

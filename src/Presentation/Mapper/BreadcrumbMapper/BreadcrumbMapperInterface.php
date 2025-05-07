@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Presentation\Mapper\BreadcrumbMapper;
 
 use App\Presentation\Data\Breadcrumb;
+use Symfony\Component\HttpFoundation\Request;
 
 interface BreadcrumbMapperInterface
 {
@@ -13,5 +14,5 @@ interface BreadcrumbMapperInterface
     /**
      * @return list<Breadcrumb>
      */
-    public function map(): array;
+    public function map(Request $request): array;
 }

@@ -25,3 +25,11 @@ yarn-error.log
 ###> phpunit/phpunit ###
 /.phpunit.cache/
 ###< phpunit/phpunit ###
+
+###> PhpStorm ###
+/.idea
+###< Phpstorm ###
+
+###> Docker ###
+/docker/db/*
+###< Docker ###

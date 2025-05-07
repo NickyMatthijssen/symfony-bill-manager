@@ -6,9 +6,9 @@ namespace App\Presentation\Controller\Dashboard\Account;
 
 use App\Domain\Entity\User;
 use App\Presentation\Controller\AbstractController;
-use App\Presentation\Form\Handler\Account\DeleteAccountFormHandler;
+use App\Presentation\Form\Handler\Security\DeleteAccountFormHandler;
 use App\Presentation\Form\Model\Account\DeleteAccount;
-use App\Presentation\Form\Type\Account\DeleteAccountType;
+use App\Presentation\Form\Type\Security\DeleteAccountType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -29,11 +29,10 @@ final class DeleteController extends AbstractController
         $user = $this->getUser();
         assert($user instanceof User);
 
-        $data = new DeleteAccount($user);
-        $form = $this->createForm(DeleteAccountType::class, $data);
+        $form = $this->createForm(DeleteAccountType::class, new DeleteAccount($user));
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->deleteAccountFormHandler->handle($data);
+            $this->deleteAccountFormHandler->handle($form->getData());
 
             $this->addInformationAlert('account.delete.successful');
 

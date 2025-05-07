@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Presentation\Controller\Dashboard\Account;
 
 use App\Domain\Entity\User;
-use App\Presentation\Form\Handler\Account\UpdateAccountFormHandler;
+use App\Presentation\Form\Handler\Security\UpdateAccountFormHandler;
 use App\Presentation\Form\Model\Account\UpdateAccount;
 use App\Presentation\Form\Type\Account\UpdateAccountType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,9 +15,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route([
-    'en' => '/dashboard/my-account/edit',
+    'en' => '/dashboard/my-account/update',
     'nl' => '/dashboard/mijn-account/bewerken',
-], name: 'dashboard.account.edit')]
+], name: 'dashboard.account.update')]
 final class UpdateController extends AbstractController
 {
     public function __construct(
@@ -31,11 +31,11 @@ final class UpdateController extends AbstractController
         $user = $this->getUser();
         assert($user instanceof User);
 
-        $data = UpdateAccount::createFromUser($user);
-        $form = $this->formFactory->create(UpdateAccountType::class, $data);
+        $form = $this->formFactory->create(UpdateAccountType::class, UpdateAccount::createFromUser($user));
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->updateAccountFormHandler->handle($data);
+            $this->updateAccountFormHandler->handle($form->getData());
+
             return $this->redirectToRoute('dashboard.account');
         }
 

@@ -7,6 +7,7 @@ namespace App\Infrastructure\Doctrine\Repository;
 use App\Domain\Entity\User;
 use App\Domain\Repository\UserRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityNotFoundException;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -20,6 +21,26 @@ final class UserRepository extends ServiceEntityRepository implements PasswordUp
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, User::class);
+    }
+
+    public function findById(int $id): User
+    {
+        $user = $this->find($id);
+        if (null === $user) {
+            throw new EntityNotFoundException();
+        }
+
+        return $user;
+    }
+
+    public function findByUserIdentifier(string $identifier): User
+    {
+        $user = $this->findOneBy(['email' => $identifier]);
+        if (null === $user) {
+            throw new EntityNotFoundException();
+        }
+
+        return $user;
     }
 
     /**

@@ -3,23 +3,28 @@
 {% block title %}{{ 'account.title'|trans }}{% endblock %}
 
 {% block main %}
+    <twig:Header title="{{ 'dashboard.my_account'|trans }}"/>
+
     <twig:Card>
         <twig:CardHeader title="{{ 'account.personal_information.title'|trans }}">
             {% block action %}
-                <a href="{{ path('dashboard.account.edit') }}" class="button button-success">
-                    {{ 'account.personal_information.edit_button'|trans }}
+                <a href="{{ path('dashboard.account.update') }}" class="button button-success">
+                    {{ 'account.personal_information.update_button'|trans }}
                 </a>
             {% endblock %}
         </twig:CardHeader>
         <twig:CardBody>
+            {% macro row(label, value) %}
+                <tr>
+                    <th class="text-left pl-4 sm:pl-0 text-white whitespace-nowrap font-medium text-sm pr-3 py-4 w-36">{{ label|trans }}</th>
+                    <td class="text-gray-300 whitespace-nowrap text-sm py-4 px-3">{{ value }}</td>
+                </tr>
+            {% endmacro %}
+
             <table class="min-w-full">
                 <tbody>
-                {% for row in information %}
-                    <tr>
-                        <th class="text-left pl-4 sm:pl-0 text-white whitespace-nowrap font-medium text-sm pr-3 py-4 w-36">{{ row.label }}</th>
-                        <td class="text-gray-300 whitespace-nowrap text-sm py-4 px-3">{{ row.value }}</td>
-                    </tr>
-                {% endfor %}
+                {{ _self.row('account.personal_information.full_name', user.fullName) }}
+                {{ _self.row('account.personal_information.email', user.email) }}
                 </tbody>
             </table>
         </twig:CardBody>

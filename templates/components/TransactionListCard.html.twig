@@ -1,0 +1,36 @@
+<div{{ attributes }}>
+    <twig:Card>
+        <twig:CardHeader :title="title"/>
+        <ul role="list" class="divide-y divide-gray-800">
+            {% for transaction in transactions %}
+                <li class="flex justify-between gap-x-6 px-6 py-5">
+                    <div class="flex min-w-0 gap-x-4">
+                        {% if transaction.icon is not null %}
+                            <img class="size-12 flex-none rounded-full bg-gray-50" src="{{ transaction.icon.source }}" alt="{{  transaction.name }}" />
+                        {% endif %}
+                        <div class="min-w-0 flex-auto">
+                            <p class="text-sm/6 font-semibold text-white">{{ transaction.name }}</p>
+                            {% if transaction.url is not empty %}
+                                <a href="{{ transaction.url }}" class="text-white/40 text-sm" target="_blank">
+                                    {{ transaction.url }}
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                        <p class="text-lg/6 text-white">{{ transaction.amount|money }}</p>
+                        <p class="mt-1 text-xs/5 text-gray-300">{{ transaction.interval.name|trans }}</p>
+                        <div class="flex space-x-4 mt-2">
+                            <a href="{{ path('dashboard.transaction.update', {id: transaction.id}) }}" class="button">
+                                {{ 'dashboard.transaction.card.edit'|trans }}
+                            </a>
+                            <a href="{{ path('dashboard.transaction.delete', {id: transaction.id}) }}" class="button button-danger">
+                                {{ 'dashboard.transaction.card.delete'|trans }}
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </twig:Card>
+</div>

@@ -9,28 +9,52 @@ use App\Domain\Entity\User;
 final class UpdateAccount
 {
     public function __construct(
-        public User $user {
-        get => $this->user;
-        },
-        public string $email {
-        get => $this->email;
-        set => $value;
-        },
-        public string $firstName {
-        get => $this->firstName;
-        set => $value;
-        },
-        public string $lastName {
-        get => $this->lastName;
-        set => $value;
-        },
+        private readonly string $userIdentifier,
+        private string $email,
+        private string $firstName,
+        private string $lastName,
     ) {
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return $this->userIdentifier;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(string $firstName): void
+    {
+        $this->firstName = $firstName;
+    }
+
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(string $lastName): void
+    {
+        $this->lastName = $lastName;
     }
 
     public static function createFromUser(User $user): self
     {
         return new self(
-            $user,
+            $user->getUserIdentifier(),
             $user->getEmail(),
             $user->getFirstName(),
             $user->getLastName(),
