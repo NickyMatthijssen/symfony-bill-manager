@@ -125,7 +125,7 @@ jobs:
         run: vendor/bin/pest --testsuite=${{ matrix.suite }}
 
   static-analysis:
-    name: PHPStan & PHPCS
+    name: Static Analysis
     runs-on: ubuntu-latest
     needs: build-assets
 
