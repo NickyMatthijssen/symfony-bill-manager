@@ -1,0 +1,12 @@
+name: Test Trigger
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "✅ Trigger works!"
