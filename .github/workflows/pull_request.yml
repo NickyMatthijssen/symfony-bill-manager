@@ -39,6 +39,17 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '21'
+
+      - name: Install JS dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build
+
       - name: Set DATABASE_URL env
         run: echo "DATABASE_URL=pgsql://symfony:secret@localhost:5432/symfony_test" >> $GITHUB_ENV
 
