@@ -1,9 +1,6 @@
 name: Code Quality Checks
 
-on:
-  pull_request:
-    branches:
-      - main
+on: ['pull_request']
 
 jobs:
   pest-tests:
