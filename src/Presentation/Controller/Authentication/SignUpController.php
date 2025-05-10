@@ -27,6 +27,10 @@ final class SignUpController extends AbstractController
 
     public function __invoke(Request $request): Response
     {
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute('dashboard');
+        }
+
         $form = $this->formFactory->create(SignUpType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

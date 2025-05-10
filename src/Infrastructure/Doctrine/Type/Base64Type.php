@@ -35,7 +35,7 @@ final class Base64Type extends Type
         return Base64::createFromBase64($type, $base64);
     }
 
-    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
+    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): ?string
     {
         if (null === $value) {
             return null;

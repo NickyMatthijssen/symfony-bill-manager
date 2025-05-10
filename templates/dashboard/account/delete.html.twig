@@ -1,5 +1,7 @@
 {% extends 'dashboard/account/_layout.html.twig' %}
 
+{% block title %}{{ 'account.delete.breadcrumb'|trans }}{% endblock %}
+
 {% block main %}
     <twig:Header title="{{ 'account.delete.confirmation_title'|trans }}">
         <a href="{{ path('dashboard.account') }}" class="button button-danger">

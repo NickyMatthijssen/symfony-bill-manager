@@ -8,7 +8,6 @@ use App\Application\Common\AvatarGeneratorInterface;
 use App\Application\Common\FaviconResolverInterface;
 use App\Domain\Entity\Transaction;
 use App\Domain\Repository\UserRepositoryInterface;
-use App\Infrastructure\Doctrine\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 

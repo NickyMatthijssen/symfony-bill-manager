@@ -1,5 +1,7 @@
 {% extends 'dashboard/account/_layout.html.twig' %}
 
+{% block title %}{{ 'account.personal_information.update.title'|trans }}{% endblock %}
+
 {% block main %}
     <twig:Header title="{{ 'account.personal_information.update.title'|trans }}">
         <a href="{{ path('dashboard.account') }}" class="button button-danger">

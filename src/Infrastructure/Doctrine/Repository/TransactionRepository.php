@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Infrastructure\Doctrine\Repository;
 
 use App\Domain\Entity\Transaction;
+use App\Domain\Exception\EntityNotFoundException;
 use App\Domain\Repository\TransactionRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\EntityNotFoundException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -24,7 +24,7 @@ final class TransactionRepository extends ServiceEntityRepository implements Tra
     {
         $transaction = $this->find($id);
         if (null === $transaction) {
-            throw new EntityNotFoundException();
+            throw EntityNotFoundException::couldNotBeFoundByAttribute($this->getEntityName(), 'id', $id);
         }
 
         return $transaction;

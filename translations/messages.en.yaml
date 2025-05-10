@@ -1,3 +1,7 @@
+defaults:
+  title: Welcome
+  app_name: Transaction Manager
+
 authentication:
   sign_in:
     title: Sign in to your account
@@ -24,6 +28,7 @@ dashboard:
   my_transactions: My Transactions
   my_income: My Income
   my_expenses: My Expenses
+  no_items_found: No items found
   add_transaction: Add transaction
   copyright: © %year% Build by Nicky Matthijssen.
   statistic:
@@ -74,8 +79,8 @@ account:
     last_name: Last name
     email: Email
     update:
-      breadcrumb: Updating personal information
-      title: Updating personal information
+      breadcrumb: Update personal information
+      title: Update personal information
       cancel: Cancel updating
       update: Update account
   security_settings:
@@ -84,8 +89,8 @@ account:
     description: Click the button below to start updating your password! It is a wise decision to this once in a while... And never reuse your password!
     update: Update password
     password:
-      breadcrumb: Updating password
-      title: Updating password
+      breadcrumb: Update password
+      title: Update password
       cancel: Cancel
       success: Password updated
       update: &update_password Update password

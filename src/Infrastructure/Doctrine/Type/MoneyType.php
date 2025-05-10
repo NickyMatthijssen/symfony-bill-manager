@@ -34,7 +34,7 @@ final class MoneyType extends Type
         return Money::createFromCents($value);
     }
 
-    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?int
+    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): ?int
     {
         if (null === $value) {
             return null;

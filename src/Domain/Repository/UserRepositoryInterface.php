@@ -10,5 +10,5 @@ interface UserRepositoryInterface
 {
     public function findById(int $id): User;
 
-    public function findByUserIdentifier(string $identifier): User;
+    public function findByUserIdentifier(string $userIdentifier): User;
 }

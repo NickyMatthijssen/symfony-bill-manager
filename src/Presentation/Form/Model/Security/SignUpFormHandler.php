@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Presentation\Form\Model\Security;
 
 use App\Application\Cqrs\CommandBusInterface;
-use App\Application\Security\SignUp\SignUpCommand;
+use App\Application\Security\Command\SignUp\SignUpCommand;
 use App\Domain\Exception\UnexpectedValueException;
 use App\Presentation\Form\Model\Authentication\SignUp;
 

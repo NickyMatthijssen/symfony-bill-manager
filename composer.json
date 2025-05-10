@@ -65,9 +65,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\Mock\\": "tests/mock",
-            "App\\Tests\\Unit\\": "tests/unit",
-            "App\\Tests\\Functional\\": "tests/functional"
+            "App\\Tests\\":  "tests/"
         }
     },
     "replace": {
@@ -102,6 +100,7 @@
         }
     },
     "require-dev": {
+        "dama/doctrine-test-bundle": "^8.3",
         "doctrine/doctrine-fixtures-bundle": ">=4.1",
         "pestphp/pest": "^3.8",
         "phpstan/phpstan": "^2.1",

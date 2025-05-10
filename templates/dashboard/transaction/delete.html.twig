@@ -1,6 +1,6 @@
-{% form_theme form 'form/_theme.html.twig' %}
-
 {% extends 'dashboard/_layout.html.twig' %}
+
+{% block title %}{{ 'dashboard.transaction.delete.breadcrumb'|trans }}{% endblock %}
 
 {% block main %}
     <twig:Header title="{{ 'dashboard.transaction.delete.title'|trans({'%name%': bill.name}) }}">

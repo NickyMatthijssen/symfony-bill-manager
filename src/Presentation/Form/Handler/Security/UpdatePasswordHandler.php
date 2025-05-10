@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace App\Presentation\Form\Handler\Security;
 
 use App\Application\Cqrs\CommandBusInterface;
-use App\Application\Security\UpdatePassword\UpdatePasswordCommand;
+use App\Application\Security\Command\UpdatePassword\UpdatePasswordCommand;
 use App\Domain\Entity\User;
-use App\Presentation\Form\Model\Account\UpdatePassword;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use App\Domain\Exception\UnexpectedValueException;
+use App\Presentation\Form\Model\Account\UpdatePassword;
+use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 final readonly class UpdatePasswordHandler
 {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Presentation\Form\Handler\Security;
 
 use App\Application\Cqrs\CommandBusInterface;
-use App\Application\Security\DeleteUser\DeleteUserCommand;
+use App\Application\Security\Command\DeleteUser\DeleteUserCommand;
 use App\Domain\Entity\User;
 use App\Presentation\Form\Model\Account\DeleteAccount;
 use LogicException;

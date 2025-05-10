@@ -11,7 +11,6 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 final class TransactionListCard
 {
     private string $title;
-
     private TransactionCollection $transactions;
 
     public function getTitle(): string

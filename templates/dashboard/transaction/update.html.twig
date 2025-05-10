@@ -1,5 +1,7 @@
 {% extends 'dashboard/_layout.html.twig' %}
 
+{% block title %}{{ 'dashboard.transaction.update.breadcrumb'|trans }}{% endblock %}
+
 {% block main %}
     <twig:Header title="{{ 'dashboard.transaction.update.title'|trans }}">
         <a href="{{ path('dashboard') }}" class="button button-danger">

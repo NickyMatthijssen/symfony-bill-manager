@@ -1,3 +1,7 @@
+defaults:
+  title: Welkom
+  app_name: Transaction Manager
+
 authentication:
   sign_in:
     title: Log in op je account
@@ -24,6 +28,7 @@ dashboard:
   my_transactions: Mijn transacties
   my_income: Mijn inkomen
   my_expenses: Mijn uitgaven
+  no_items_found: Geen transacties gevonden
   add_transaction: Transactie toevoegen
   copyright: © %year% Gemaakt door Nicky Matthijssen.
   statistic:

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Presentation\Form\Handler\Security;
 
 use App\Application\Cqrs\CommandBusInterface;
-use App\Application\Security\UpdateUser\UpdateUserCommand;
+use App\Application\Security\Command\UpdateUser\UpdateUserCommand;
 use App\Presentation\Form\Model\Account\UpdateAccount;
 
 final readonly class UpdateAccountFormHandler
