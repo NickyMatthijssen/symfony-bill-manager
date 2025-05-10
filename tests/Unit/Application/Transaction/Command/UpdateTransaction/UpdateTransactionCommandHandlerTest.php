@@ -28,7 +28,7 @@ test('a transaction can be updated', function (?string $url) {
 
         $avatarGenerator->expects($this->never())->method('generate');
         $faviconResolver->expects($this->never())->method('resolve');
-    } else if (null === $url) {
+    } elseif (null === $url) {
         $expectedIcon = new Base64('avatar', 'content');
 
         $avatarGenerator->expects($this->once())->method('generate')->willReturn($expectedIcon);
