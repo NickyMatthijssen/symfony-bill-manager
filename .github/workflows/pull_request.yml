@@ -89,8 +89,21 @@ jobs:
           coverage: none
           extensions: mbstring, pdo, pdo_pgsql
 
-      - name: Install dependencies
-        run: composer install --no-interaction --prefer-dist
+      - name: Restore Composer dependencies cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Restore Node build cache
+        uses: actions/cache@v3
+        with:
+          path: public/build
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
 
       - name: Set DATABASE_URL env
         run: echo "DATABASE_URL=pgsql://symfony:secret@localhost:5432/symfony_test" >> $GITHUB_ENV
@@ -126,8 +139,13 @@ jobs:
           php-version: '8.4'
           tools: phpstan, phpcs
 
-      - name: Install dependencies
-        run: composer install --no-interaction --prefer-dist
+      - name: Restore Composer dependencies cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
 
       - name: Run PHPStan
         run: vendor/bin/phpstan analyse
