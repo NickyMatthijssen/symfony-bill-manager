@@ -5,9 +5,10 @@ framework:
     # Note that the session will be started ONLY if you read or write from it.
     session: true
 
-    trusted_proxies: ['127.0.0.1']
+    trusted_proxies: '%env(TRUSTED_PROXIES)%'
     trusted_headers: ['x-forwarded-for', 'x-forwarded-host', 'x-forwarded-proto']
 
+    env(TRUSTED_PROXIES): '127.0.0.1,PRIVATE_SUBNETS'
 when@test:
     framework:
         test: true
